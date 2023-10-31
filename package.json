@@ -1,10 +1,16 @@
 {
   "name": "backend",
-  "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "version": "1.0.0",
+  "exports": "./dist/schema.js",
+  "types": "./dist/schema.d.ts",
   "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "aarontravass",
   "license": "ISC",
   "scripts": {
     "lint": "eslint . --ext=js,ts",
@@ -12,7 +18,10 @@
     "format:fix": "prettier --write \"./**/*.{ts,js}\"",
     "prepare": "husky install",
     "generate": "prisma generate",
-    "migrate:dev": "prisma migrate dev --name init"
+    "migrate:dev": "prisma migrate dev --name init",
+    "build": "esbuild src/server.ts --bundle --platform=node --target=node20 --format=esm --packages=external --outdir=dist",
+    "dev": "tsx watch src/server.ts",
+    "start": "node ./dist/server.js"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
@@ -36,6 +45,7 @@
     "@pothos/plugin-validation": "^3.10.1",
     "@prisma/client": "^5.5.2",
     "bcrypt": "^5.1.1",
+    "dotenv": "^16.3.1",
     "graphql": "^16.8.1",
     "graphql-http": "^1.22.0",
     "graphql-scalars": "^1.22.4",

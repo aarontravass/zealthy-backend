@@ -10,6 +10,7 @@ export const Ticket = builder.prismaObject('Ticket', {
     content: t.exposeString('content'),
     status: t.expose('status', { type: TicketStatusEnum }),
     createdAt: t.expose('createdAt', { type: 'Date' }),
-    updatedAt: t.expose('updatedAt', { type: 'Date' })
+    updatedAt: t.expose('updatedAt', { type: 'Date' }),
+    comments: t.relation('Comment')
   })
 })

@@ -132,3 +132,4 @@ dist
 prisma/prisma-client
 prisma/pothos-types.ts
 .env
+prisma/migrations

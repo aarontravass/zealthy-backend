@@ -8,6 +8,8 @@ export const User = builder.prismaObject('User', {
     firstName: t.exposeString('firstName'),
     lastName: t.exposeString('lastName'),
     createdAt: t.expose('createdAt', { type: 'Date' }),
-    updatedAt: t.expose('updatedAt', { type: 'Date' })
+    updatedAt: t.expose('updatedAt', { type: 'Date' }),
+    comment: t.relation('Comment'),
+    loginSession: t.relation('loginSession')
   })
 })
