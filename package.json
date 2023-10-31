@@ -3,10 +3,45 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "lint": "eslint . --ext=js,ts",
+    "format": "prettier --check \"./**/*.{ts,js}\"",
+    "format:fix": "prettier --write \"./**/*.{ts,js}\"",
+    "prepare": "husky install",
+    "generate": "prisma generate",
+    "migrate:dev": "prisma migrate dev --name init"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@types/bcrypt": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.4",
+    "@types/node": "^20.3.2",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "esbuild": "^0.19.5",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.0",
+    "tsx": "^3.12.7"
+  },
+  "dependencies": {
+    "@pothos/core": "^3.38.0",
+    "@pothos/plugin-prisma": "^3.61.0",
+    "@pothos/plugin-scope-auth": "^3.20.0",
+    "@pothos/plugin-validation": "^3.10.1",
+    "@prisma/client": "^5.5.2",
+    "bcrypt": "^5.1.1",
+    "graphql": "^16.8.1",
+    "graphql-http": "^1.22.0",
+    "graphql-scalars": "^1.22.4",
+    "graphql-yoga": "^5.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^5.5.2",
+    "zod": "^3.22.4"
+  }
 }
