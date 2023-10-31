@@ -19,7 +19,7 @@ builder.queryField('fetchAllTickets', (t) =>
         },
         ...query,
         take: recordsPerPage,
-        skip: pageNo * recordsPerPage
+        skip: (pageNo - 1) * recordsPerPage
       })
   })
 )

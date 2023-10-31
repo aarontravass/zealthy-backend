@@ -15,6 +15,7 @@ builder.mutationField('updateTicket', (t) =>
     },
     type: Ticket,
     resolve: async (query, args, { ticketId, status }, ctx) => {
+      status = status.toUpperCase()
       if (!TicketStatus[status as TicketStatus]) throw new GraphQLError('Invalid status')
       return await prisma.ticket.update({
         where: {

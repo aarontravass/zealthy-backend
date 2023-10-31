@@ -1,6 +1,7 @@
 import { compare, hash as bcryptHash } from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { JWT_SECRET } from './constants'
+
 export const comparePassword = async (password: string, dbpassword: string) => await compare(password, dbpassword)
 
 export const hashPassword = async (password: string) => await bcryptHash(password, 10)
