@@ -3,8 +3,9 @@
   "description": "",
   "type": "module",
   "version": "1.0.0",
-  "exports": "./dist/schema.js",
-  "types": "./dist/schema.d.ts",
+  "main": "dist/server.js",
+  "source": "src/server.ts",
+  "types": "dist/server.d.ts",
   "keywords": [],
   "repository": {
     "type": "git",
@@ -19,24 +20,27 @@
     "prepare": "husky install",
     "generate": "prisma generate",
     "migrate:dev": "prisma migrate dev --name init",
-    "build": "esbuild src/server.ts --bundle --platform=node --target=node20 --format=esm --packages=external --outdir=dist",
+    "build": "parcel build",
     "dev": "tsx watch src/server.ts",
     "start": "node ./dist/server.js"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
+    "@parcel/packager-ts": "2.10.1",
+    "@parcel/transformer-typescript-types": "2.10.1",
     "@types/bcrypt": "^5.0.1",
     "@types/jsonwebtoken": "^9.0.4",
     "@types/node": "^20.3.2",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "esbuild": "^0.19.5",
     "eslint": "^8.44.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
+    "parcel": "^2.10.1",
     "prettier": "^3.0.0",
-    "tsx": "^3.12.7"
+    "tsx": "^3.12.7",
+    "typescript": ">=3.0.0"
   },
   "dependencies": {
     "@pothos/core": "^3.38.0",
